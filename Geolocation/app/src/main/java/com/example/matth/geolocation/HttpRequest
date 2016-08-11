@@ -1,0 +1,57 @@
+
++++++    package com.example.matth.geolocation;
+
+    import android.app.Activity;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.TextView;
+
+    import java.io.BufferedOutputStream;
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStreamReader;
+    import java.io.OutputStream;
+    import java.net.URL;
+    import java.net.URLConnection;
+    import java.net.URLEncoder;
+
+    /**
+     * Created by matth on 7/16/2016.
+     */
+    public class MyHttpPost extends Activity
+    {
+        private String site = "10.10.30.165/maps";
+        private String str = "Test";
+        private double data = 37.37;
+
+        @Override
+        protected void onCreate(Bundle savedInstance)
+        {
+            super.onCreate(savedInstance);
+            setContentView(R.layout.activity_main);
+            try{
+                CreateNewProductPOST(site);
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+        private void CreateNewProductPOST (String site) throws IOException{
+
+            try {
+                URL url = new URL(site);
+                URLConnection connection = url.openConnection();
+                connection.setDoOutput(true);
+                connection.setRequestProperty("Authorization", str);
+                OutputStream outputPost = new BufferedOutputStream(connection.getOutputStream());
+                outputPost.write(5);
+                outputPost.flush();
+                outputPost.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            {
+
+            }
+        }
+    }
