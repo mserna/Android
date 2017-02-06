@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.matth.mypostrequest.MainActivity">
+
+    <include layout="@layout/content_main" />
+
+    <com.esri.android.map.MapView
+        android:id="@+id/localMap"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        mapoptions.MapType="Streets"
+        mapoptions.center="37, -122"
+        mapoptions.ZoomLevel="16">
+    </com.esri.android.map.MapView>
+
+</android.support.design.widget.CoordinatorLayout>
